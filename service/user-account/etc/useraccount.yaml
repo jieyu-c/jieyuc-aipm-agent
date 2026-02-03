@@ -9,4 +9,4 @@ DataSource: postgres://root:pass@localhost:5432/ai-pm?sslmode=disable&connect_ti
 Cache:
   - Host: localhost:6379
     Type: node
-    Pass: "cjy1.2.3."
+    Pass: "xxxxx"
