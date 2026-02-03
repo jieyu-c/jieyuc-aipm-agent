@@ -1,0 +1,10 @@
+Name: jieyuc_aipm
+Host: 0.0.0.0
+Port: 8888
+Timeout: 30000  # 30 秒，单位毫秒
+UserAccountRpcConf:
+  Etcd:
+    Hosts:
+    - 127.0.0.1:2379
+    Key: user-account.rpc
+  Timeout: 30000  # 30 秒，单位毫秒，避免 DB/Redis 远程调用超时

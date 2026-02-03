@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./user_account";
+
+// 登录请求
+message LoginReq {
+  string phone = 1;
+  string password = 2;
+  string verifyCode = 3;
+}
+
+// 用户信息
+message UserInfo {
+  string phone = 1;
+  string userId = 2;
+}
+
+// 登录响应
+message LoginResp {
+  UserInfo userInfo = 1;
+  string token = 2;
+}
+
+
+// 注册请求
+message RegisterReq {
+  string phone = 1;
+  string password = 2;
+  string verifyCode = 3;
+}
+
+// 注册响应
+message RegisterResp {
+  bool registerStatus = 1;
+  string msg = 2;
+}
+
+// 用户详情（不含密码）
+message UserDetail {
+  string userId = 1;
+  string phone = 2;
+  string username = 3;
+  string nickname = 4;
+  string avatar = 5;
+  int64 gender = 6;
+  int64 status = 7;
+  int64 createdAt = 8;
+  int64 updatedAt = 9;
+}
+
+// 获取用户详情请求
+message GetUserDetailReq {
+  string userId = 1;
+}
+
+// 获取用户详情响应
+message GetUserDetailResp {
+  UserDetail userDetail = 1;
+}
+
+service UserAccount {
+  rpc LoginRpc(LoginReq) returns (LoginResp);
+  rpc RegisterRpc(RegisterReq) returns (RegisterResp);
+  rpc GetUserDetail(GetUserDetailReq) returns (GetUserDetailResp);
+}

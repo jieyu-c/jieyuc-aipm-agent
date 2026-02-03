@@ -1,0 +1,78 @@
+syntax = "v1"
+
+info (
+	title: ""
+	desc:  "type desc here"
+)
+
+// 登录请求和响应
+type (
+	LoginRequest {
+		Phone      string `json:"phone"`
+		Password   string `json:"password,optional"`
+		VerifyCode string `json:"verifyCode,optional"`
+	}
+	UserInfo {
+		Phone  string `json:"phone"`
+		UserId string `json:"userId"`
+	}
+	LoginResponse {
+		UserInfo UserInfo `json:"userInfo"`
+		Token    string   `json:"token"`
+	}
+)
+
+// 注册请求和响应
+type (
+	RegisterRequest {
+		Phone      string `json:"phone"`
+		Password   string `json:"password"`
+		VerifyCode string `json:"verifyCode"`
+	}
+	RegisterResponse {
+		RegisterStatus bool   `json:"registerStatus"`
+		Msg            string `json:"msg"`
+	}
+)
+
+// 用户详情（不含密码）
+type (
+	UserDetail {
+		UserId    string `json:"userId"`
+		Phone     string `json:"phone"`
+		Username  string `json:"username"`
+		Nickname  string `json:"nickname"`
+		Avatar    string `json:"avatar"`
+		Gender    int64  `json:"gender"`
+		Status    int64  `json:"status"`
+		CreatedAt int64  `json:"createdAt"`
+		UpdatedAt int64  `json:"updatedAt"`
+	}
+	GetUserDetailResponse {
+		UserDetail UserDetail `json:"userDetail"`
+	}
+)
+
+@server (
+	group:  user_account
+	prefix: /api/v1/user-account
+)
+service jieyuc_aipm {
+	@handler LoginHandler
+	post /login (LoginRequest) returns (LoginResponse)
+
+	@handler RegisterHandler
+	post /register (RegisterRequest) returns (RegisterResponse)
+}
+
+
+
+@server (
+	group:  user_account
+	prefix: /api/v1/user-account
+	jwt: Auth
+)
+service jieyuc_aipm {
+	@handler GetUserDetailHandler
+	get /detail returns (GetUserDetailResponse)
+}
