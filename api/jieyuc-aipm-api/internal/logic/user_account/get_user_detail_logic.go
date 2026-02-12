@@ -6,7 +6,7 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 	"jieyuc.cn/jieyuc-aipm-agent/api/jieyuc-aipm-api/internal/svc"
 	"jieyuc.cn/jieyuc-aipm-agent/api/jieyuc-aipm-api/internal/types"
-	user_account_rpc "jieyuc.cn/jieyuc-aipm-agent/service/pb/user_account"
+	user_account_rpc "jieyuc.cn/jieyuc-aipm-agent/rpc/pb/user_account"
 )
 
 type GetUserDetailLogic struct {

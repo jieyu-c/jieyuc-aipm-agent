@@ -7,9 +7,9 @@ package server
 import (
 	"context"
 
-	"jieyuc.cn/jieyuc-aipm-agent/service/pb/user_account"
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/internal/logic"
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/internal/svc"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/pb/user_account"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/internal/logic"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/internal/svc"
 )
 
 type UserAccountServer struct {

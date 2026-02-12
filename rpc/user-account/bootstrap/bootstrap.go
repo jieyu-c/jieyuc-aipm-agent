@@ -3,10 +3,10 @@ package bootstrap
 import (
 	"fmt"
 
-	"jieyuc.cn/jieyuc-aipm-agent/service/pb/user_account"
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/internal/config"
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/internal/server"
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/internal/svc"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/pb/user_account"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/internal/config"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/internal/server"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"

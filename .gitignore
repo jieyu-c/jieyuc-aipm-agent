@@ -3,5 +3,5 @@
 /.cursor
 /.cursorrules
 /.idea
-/service/user-account/etc/useraccount-local.yaml
+/rpc/user-account/etc/useraccount-local.yaml
 /script/model_generater.sh

@@ -42,7 +42,7 @@ func ParseJwtToken(tokenString string) (payload string, err error) {
 	if len(tokenString) > len(bearer) && tokenString[:len(bearer)] == bearer {
 		tokenString = tokenString[len(bearer):]
 	}
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (any, error) {
 		return []byte(DefaultSecretKey), nil
 	})
 	if err != nil {

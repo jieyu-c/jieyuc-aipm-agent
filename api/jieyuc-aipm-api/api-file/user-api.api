@@ -65,14 +65,13 @@ service jieyuc_aipm {
 	post /register (RegisterRequest) returns (RegisterResponse)
 }
 
-
-
 @server (
-	group:  user_account
-	prefix: /api/v1/user-account
-	jwt: Auth
+	group:      user_account
+	prefix:     /api/v1/user-account
+	middleware: AuthMiddleware
 )
 service jieyuc_aipm {
 	@handler GetUserDetailHandler
 	get /detail returns (GetUserDetailResponse)
 }
+

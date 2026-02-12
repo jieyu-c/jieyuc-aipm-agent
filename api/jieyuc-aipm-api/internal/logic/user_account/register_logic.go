@@ -9,7 +9,7 @@ import (
 
 	"jieyuc.cn/jieyuc-aipm-agent/api/jieyuc-aipm-api/internal/svc"
 	"jieyuc.cn/jieyuc-aipm-agent/api/jieyuc-aipm-api/internal/types"
-	"jieyuc.cn/jieyuc-aipm-agent/service/pb/user_account"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/pb/user_account"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

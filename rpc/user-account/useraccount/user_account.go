@@ -7,7 +7,7 @@ package useraccount
 import (
 	"context"
 
-	"jieyuc.cn/jieyuc-aipm-agent/service/pb/user_account"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/pb/user_account"
 
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"

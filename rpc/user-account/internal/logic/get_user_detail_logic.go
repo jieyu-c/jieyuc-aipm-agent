@@ -6,9 +6,9 @@ import (
 	"fmt"
 
 	"github.com/zeromicro/go-zero/core/logx"
-	"jieyuc.cn/jieyuc-aipm-agent/internal/model/users"
-	"jieyuc.cn/jieyuc-aipm-agent/service/pb/user_account"
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/internal/svc"
+	useraccount "jieyuc.cn/jieyuc-aipm-agent/internal/domain/useraccount"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/pb/user_account"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/internal/svc"
 )
 
 type GetUserDetailLogic struct {
@@ -29,12 +29,12 @@ func (l *GetUserDetailLogic) GetUserDetail(in *user_account.GetUserDetailReq) (*
 	if in.GetUserId() == "" {
 		return nil, fmt.Errorf("userId不能为空")
 	}
-	user, err := l.svcCtx.UsersModel.FindOneByUserId(l.ctx, in.GetUserId())
+	user, err := l.svcCtx.UserAccountApp.GetUserDetail(l.ctx, in.GetUserId())
 	if err != nil {
-		if errors.Is(err, users.ErrNotFound) {
+		if errors.Is(err, useraccount.ErrUserNotFound) {
 			return nil, fmt.Errorf("用户不存在")
 		}
-		l.Logger.Errorf("GetUserDetail FindOneByUserId failed, userId: %s, err: %v", in.GetUserId(), err)
+		l.Logger.Errorf("GetUserDetail failed, userId: %s, err: %v", in.GetUserId(), err)
 		return nil, fmt.Errorf("获取用户详情失败")
 	}
 	return &user_account.GetUserDetailResp{

@@ -7,14 +7,14 @@ import (
 
 	apiBootstrap "jieyuc.cn/jieyuc-aipm-agent/api/jieyuc-aipm-api/bootstrap"
 	_ "jieyuc.cn/jieyuc-aipm-agent/internal/model"
-	rpcBootstrap "jieyuc.cn/jieyuc-aipm-agent/service/user-account/bootstrap"
+	rpcBootstrap "jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/bootstrap"
 
 	"github.com/zeromicro/go-zero/core/service"
 )
 
 var (
 	apiConfigFile = flag.String("api-f", "api/jieyuc-aipm-api/etc/jieyuc_aipm.yaml", "the api config file")
-	rpcConfigFile = flag.String("rpc-f", "service/user-account/etc/useraccount-local.yaml", "the rpc config file")
+	rpcConfigFile = flag.String("rpc-f", "rpc/user-account/etc/useraccount-local.yaml", "the rpc config file")
 )
 
 func main() {

@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"jieyuc.cn/jieyuc-aipm-agent/service/user-account/bootstrap"
+	"jieyuc.cn/jieyuc-aipm-agent/rpc/user-account/bootstrap"
 )
 
 var configFile = flag.String("f", "etc/useraccount.yaml", "the config file")

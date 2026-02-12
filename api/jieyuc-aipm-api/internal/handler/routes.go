@@ -16,11 +16,6 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	server.AddRoutes(
 		[]rest.Route{
 			{
-				Method:  http.MethodGet,
-				Path:    "/detail",
-				Handler: user_account.GetUserDetailHandler(serverCtx),
-			},
-			{
 				Method:  http.MethodPost,
 				Path:    "/login",
 				Handler: user_account.LoginHandler(serverCtx),
@@ -31,6 +26,20 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: user_account.RegisterHandler(serverCtx),
 			},
 		},
+		rest.WithPrefix("/api/v1/user-account"),
+	)
+
+	server.AddRoutes(
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.AuthMiddleware},
+			[]rest.Route{
+				{
+					Method:  http.MethodGet,
+					Path:    "/detail",
+					Handler: user_account.GetUserDetailHandler(serverCtx),
+				},
+			}...,
+		),
 		rest.WithPrefix("/api/v1/user-account"),
 	)
 }
